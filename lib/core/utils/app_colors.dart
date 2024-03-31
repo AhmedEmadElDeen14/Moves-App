@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Colors{
+class AppColors{
 
   static Color backgroundColor = const Color(0xff121312);
   static Color rectangleBackgroundColor=const Color(0xff282A28);
