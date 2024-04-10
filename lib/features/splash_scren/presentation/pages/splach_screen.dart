@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Timer(Duration(seconds: 3), () {
-      Navigator.pushNamed(context, RoutesName.home);
+      Navigator.pushNamedAndRemoveUntil(context, RoutesName.navBar, (route) => false);
     });
 
     return Scaffold(
