@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/api/api_manager.dart';
+import 'package:movies_app/core/enum/screen_state.dart';
 import 'package:movies_app/core/utils/constants.dart';
 import 'package:movies_app/features/home_screen/data/data_sources/home_remote_ds_impl.dart';
 import 'package:movies_app/features/home_screen/data/models/MoviesModel.dart';

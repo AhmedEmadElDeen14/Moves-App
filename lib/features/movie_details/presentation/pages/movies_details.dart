@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/api/api_manager.dart';
+import 'package:movies_app/core/enum/screen_state.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/constants.dart';
 import 'package:movies_app/features/home_screen/presentation/widgets/movies_list.dart';
@@ -38,7 +38,8 @@ class MovieDetails extends StatelessWidget {
               ApiManager(),
             ),
           ),
-        ),movieId!,
+        ),
+        movieId!,
       )..add(MovieDetailsGetMovie()),
       child: BlocConsumer<MovieDetailsBloc, MovieDetailsState>(
         listener: (context, state) {
@@ -72,10 +73,16 @@ class MovieDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image(
-                    image: NetworkImage(
-                        "${Constants.imgUrl}${movie?.backdropPath}"),
-                  ),
+                  state.type == ScreenType.loading
+                      ? Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : Image(
+                          image: NetworkImage(
+                              "${Constants.imgUrl}${movie?.backdropPath}"),
+                          height: 250.0,
+                          fit: BoxFit.cover,
+                        ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
@@ -103,9 +110,13 @@ class MovieDetails extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            MovieImage(
-                              result: movie,
-                            ),
+                            state.type == ScreenType.loading
+                                ? Center(
+                                    child: CircularProgressIndicator(),
+                                  )
+                                : MovieImage(
+                                    result: movie,
+                                  ),
                             Flexible(
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 10),
@@ -113,26 +124,7 @@ class MovieDetails extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Column(
-                                      children: [
-                                        ListView.builder(
-                                          shrinkWrap: true,
-                                          itemCount: 2,
-                                          itemBuilder: (context, index) {
-                                            return Row(
-                                              children: List.generate(
-                                                3,
-                                                (buttonIndex) {
-                                                  return GenresButton(
-                                                    Genre: 'Action',
-                                                  );
-                                                },
-                                              ),
-                                            );
-                                          },
-                                        ),
-                                      ],
-                                    ),
+                                    _buildGenreList(movie?.genres),
                                     Column(
                                       children: [
                                         Container(
@@ -172,15 +164,32 @@ class MovieDetails extends StatelessWidget {
                       ],
                     ),
                   ),
-                  MoviesList(
-                    listTitle: "More Like This",
-                  ),
+                  state.type == ScreenType.loading
+                      ? Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : MoviesList(
+                          listTitle: "More Like This",
+                          movieId: movieId,
+                        ),
                 ],
               ),
             ),
           );
         },
       ),
+    );
+  }
+
+  Widget _buildGenreList(List<Genres>? genres) {
+    if (genres == null || genres.isEmpty) {
+      return Text('No genres available');
+    }
+    return Wrap(
+      spacing: 5.0,
+      runSpacing: 5.0,
+      children:
+          genres.map((genre) => GenresButton(Genre: genre.name!)).toList(),
     );
   }
 }
