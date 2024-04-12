@@ -77,10 +77,9 @@ class HomeScreen extends StatelessWidget {
                                 child: CircularProgressIndicator(),
                               )
                             : Image(
-                                image:
-                                NetworkImage(
-                                    "${Constants.imgUrl}${movies?[4].backdropPath ?? ''}"),
-                                width: MediaQuery.of(context).size.width*1,
+                                image: NetworkImage(
+                                    "${Constants.imgUrl}${movies?[0].backdropPath ?? ''}"),
+                                width: MediaQuery.of(context).size.width * 1,
                               ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -88,9 +87,13 @@ class HomeScreen extends StatelessWidget {
                             Container(
                               margin: EdgeInsets.symmetric(horizontal: 20),
                               alignment: Alignment.bottomLeft,
-                              // child: MovieImage(
-                              //   result: movies?[0],
-                              // ),
+                              child: state.type == ScreenType.loading
+                                  ? Center(
+                                      child: CircularProgressIndicator(),
+                                    )
+                                  : MovieImage(
+                                      res: movies?[0],
+                                    ),
                             ),
                             Container(
                               padding: EdgeInsets.symmetric(vertical: 8),
@@ -111,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                     padding: EdgeInsets.symmetric(vertical: 5),
                                     child: Text(
-                                      "2019  PG-13  2h 7m",
+                                      "${movies?[0].releaseDate == null || movies?[0].releaseDate == "" ? 2021 : movies?[0].releaseDate.toString().substring(0, 4)}  R 1h 59m",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 10,

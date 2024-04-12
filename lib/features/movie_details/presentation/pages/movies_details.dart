@@ -145,7 +145,7 @@ class MovieDetails extends StatelessWidget {
                                               width: 7,
                                             ),
                                             Text(
-                                              "7.7",
+                                              "${movie?.voteAverage.toString().substring(0, 3)}",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 15,
