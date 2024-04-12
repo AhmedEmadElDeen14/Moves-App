@@ -103,7 +103,7 @@ class _MovieCoverImageState extends State<MovieCoverImage> {
                       ),
                     ],
                   ),
-                  widget.result!.title.toString().length > 30
+                  widget.result!.title.toString().length > 25
                       ? Text(
                           widget.result?.title ?? "",
                           style: const TextStyle(
