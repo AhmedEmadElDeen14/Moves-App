@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: Text("Error"),
+                title: const Text("Error"),
                 content: Text(state.failures?.message ?? ""),
               ),
             );
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                     child: Stack(
                       children: [
                         state.type == ScreenType.loading
-                            ? Center(
+                            ? const Center(
                                 child: CircularProgressIndicator(),
                               )
                             : Image(
@@ -85,10 +85,10 @@ class HomeScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Container(
-                              margin: EdgeInsets.symmetric(horizontal: 20),
+                              margin: const EdgeInsets.symmetric(horizontal: 20),
                               alignment: Alignment.bottomLeft,
                               child: state.type == ScreenType.loading
-                                  ? Center(
+                                  ? const Center(
                                       child: CircularProgressIndicator(),
                                     )
                                   : MovieImage(
@@ -96,26 +96,26 @@ class HomeScreen extends StatelessWidget {
                                     ),
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(vertical: 8),
+                              padding: const EdgeInsets.symmetric(vertical: 8),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.symmetric(vertical: 5),
+                                    padding: const EdgeInsets.symmetric(vertical: 5),
                                     child: Text(
                                       movies?[0].title ?? "",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 14,
                                       ),
                                     ),
                                   ),
                                   Container(
-                                    padding: EdgeInsets.symmetric(vertical: 5),
+                                    padding: const EdgeInsets.symmetric(vertical: 5),
                                     child: Text(
                                       "${movies?[0].releaseDate == null || movies?[0].releaseDate == "" ? 2021 : movies?[0].releaseDate.toString().substring(0, 4)}  R 1h 59m",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 10,
                                       ),
@@ -130,14 +130,14 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   state.type == ScreenType.loading
-                      ? Center(
+                      ? const Center(
                           child: CircularProgressIndicator(),
                         )
                       : MoviesList(
                           listTitle: "New Releases",
                         ),
                   state.type == ScreenType.loading
-                      ? Center(
+                      ? const Center(
                           child: CircularProgressIndicator(),
                         )
                       : MoviesList(

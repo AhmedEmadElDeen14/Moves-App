@@ -11,7 +11,7 @@ import 'package:movies_app/features/movie_details/presentation/bloc/movie_detail
 import 'package:movies_app/features/movie_details/presentation/bloc/movie_details_state.dart';
 
 class MovieImage extends StatefulWidget {
-  MovieImage({super.key, this.result,this.res});
+  MovieImage({super.key, this.result, this.res});
 
   MovieModel? result;
   Results? res;
@@ -26,50 +26,53 @@ class _MovieCoverImageState extends State<MovieImage> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.result==null
-        ?Stack(
-      children: [
-        Image(
-          image: NetworkImage(
-              "${Constants.imgUrl}${widget.res?.posterPath}"),
-          height: 199.h,
-        ),
-        InkWell(
-          onTap: () {
-            if (bookmarkSelected == true) {
-              bookmarkSelected = false;
-            } else {
-              bookmarkSelected = true;
-            }
-            setState(() {});
-          },
-          child: Stack(
-            alignment: Alignment.center,
+    return widget.result == null
+        ? Stack(
             children: [
-              Icon(
-                Icons.bookmark,
-                color: bookmarkSelected
-                    ? AppColors.selectedBookmarkColor
-                    : AppColors.unselectedBookmarkColor,
-                size: 50,
-              ),
-              bookmarkSelected
-                  ? Icon(
-                Icons.check,
-                size: 20,
-                color: Colors.white,
-              )
-                  : Icon(
-                Icons.add,
-                size: 20,
-                color: Colors.white,
+              widget.result?.posterPath == null ||
+                      widget.result?.posterPath?.isEmpty == true
+                  ? const Image(image: AssetImage("assets/images/movie.png"))
+                  : Image(
+                      image: NetworkImage(
+                          "${Constants.imgUrl}${widget.res?.posterPath}"),
+                      height: 199.h,
+                    ),
+              InkWell(
+                onTap: () {
+                  if (bookmarkSelected == true) {
+                    bookmarkSelected = false;
+                  } else {
+                    bookmarkSelected = true;
+                  }
+                  setState(() {});
+                },
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Icon(
+                      Icons.bookmark,
+                      color: bookmarkSelected
+                          ? AppColors.selectedBookmarkColor
+                          : AppColors.unselectedBookmarkColor,
+                      size: 50,
+                    ),
+                    bookmarkSelected
+                        ? Icon(
+                            Icons.check,
+                            size: 20,
+                            color: Colors.white,
+                          )
+                        : Icon(
+                            Icons.add,
+                            size: 20,
+                            color: Colors.white,
+                          ),
+                  ],
+                ),
               ),
             ],
-          ),
-        ),
-      ],
-    )
-    :Stack(
+          )
+        : Stack(
             children: [
               Image(
                 image: NetworkImage(

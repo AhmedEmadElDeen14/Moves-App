@@ -34,7 +34,7 @@ class _MovieCoverImageState extends State<MovieCoverImage> {
             children: [
               widget.result?.posterPath == null ||
                       widget.result?.posterPath?.isEmpty == true
-                  ? Image(image: AssetImage("assets/images/movie.png"))
+                  ? const Image(image: AssetImage("assets/images/movie.png"))
                   : Image(
                       image: NetworkImage(
                           "${Constants.imgUrl}${widget.result?.posterPath}"),
@@ -60,12 +60,12 @@ class _MovieCoverImageState extends State<MovieCoverImage> {
                       size: 50,
                     ),
                     bookmarkSelected
-                        ? Icon(
+                        ? const Icon(
                             Icons.check,
                             size: 20,
                             color: Colors.white,
                           )
-                        : Icon(
+                        : const Icon(
                             Icons.add,
                             size: 20,
                             color: Colors.white,
@@ -91,12 +91,12 @@ class _MovieCoverImageState extends State<MovieCoverImage> {
                         color: AppColors.selectedBookmarkColor,
                         size: 10,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 7,
                       ),
                       Text(
                         "${widget.result?.voteAverage.toString().substring(0, 3)}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 10,
                             fontWeight: FontWeight.w500),
@@ -106,21 +106,21 @@ class _MovieCoverImageState extends State<MovieCoverImage> {
                   widget.result!.title.toString().length > 30
                       ? Text(
                           widget.result?.title ?? "",
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 9,
                               fontWeight: FontWeight.w500),
                         )
                       : Text(
                           widget.result?.title ?? "",
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
                               fontWeight: FontWeight.w500),
                         ),
                   Text(
                     "${widget.result?.releaseDate == null || widget.result?.releaseDate == "" ? 2021 : widget.result?.releaseDate.toString().substring(0, 4)}  R 1h 59m",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 8,
                         fontWeight: FontWeight.w500),
