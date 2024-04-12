@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/enum/screen_state.dart';
 import 'package:movies_app/features/home_screen/domain/use_cases/get_movies_use_case.dart';
 import 'package:movies_app/features/home_screen/presentation/bloc/home_event.dart';
 import 'package:movies_app/features/home_screen/presentation/bloc/home_state.dart';

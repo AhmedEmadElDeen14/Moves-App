@@ -1,7 +1,6 @@
+import 'package:movies_app/core/enum/screen_state.dart';
 import 'package:movies_app/core/errors/failure.dart';
 import 'package:movies_app/features/home_screen/data/models/MoviesModel.dart';
-
-enum ScreenType { init, loading, success, failures, changeNavBar }
 
 class HomeState {
   ScreenType? type;

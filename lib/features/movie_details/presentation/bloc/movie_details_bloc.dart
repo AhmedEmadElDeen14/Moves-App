@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:movies_app/core/enum/screen_state.dart';
 import 'package:movies_app/features/movie_details/domain/use_cases/get_movie_details_use_case.dart';
 import 'package:movies_app/features/movie_details/presentation/bloc/movie_details_event.dart';
 import 'package:movies_app/features/movie_details/presentation/bloc/movie_details_state.dart';
