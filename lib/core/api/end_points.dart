@@ -1,4 +1,4 @@
-class endPoints{
+class EndPoints{
 
   static const String popular ="/3/movie/popular";
   static const String newReleases ="/3/movie/upcoming";

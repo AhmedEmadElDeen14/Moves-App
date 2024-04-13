@@ -16,7 +16,7 @@ class MovieDetailsRemoteDSImpl implements MovieDetailsRemoteDS {
   Future<Either<Failures, MovieModel>> getMovieDetails(String movieId) async {
     try {
       Response response = await apiManager.getData(
-        endPoint: endPoints.details+'/$movieId',);
+        endPoint: EndPoints.details+'/$movieId',);
       MovieModel model = MovieModel.fromJson(response.data);
       return Right(model);
     }catch (e){
@@ -28,7 +28,7 @@ class MovieDetailsRemoteDSImpl implements MovieDetailsRemoteDS {
   Future<Either<Failures, MoviesModel>> getSimilarMovie(String movieId) async {
     try {
       Response response = await apiManager.getData(
-        endPoint: '${endPoints.details}/$movieId/similar',);
+        endPoint: '${EndPoints.details}/$movieId/similar',);
       MoviesModel model = MoviesModel.fromJson(response.data);
       return Right(model);
     }catch (e){
