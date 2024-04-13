@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:movies_app/core/utils/constants.dart';
-import 'package:movies_app/features/home_screen/data/models/MoviesModel.dart';
 
 class ApiManager {
   late Dio dio;

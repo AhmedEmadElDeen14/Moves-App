@@ -15,7 +15,7 @@ class HomeRemoteDSImpl implements HomeRemoteDS {
   Future<Either<Failures, MoviesModel>> getPopularMovies() async {
     try {
       Response response = await apiManager.getData(
-        endPoint: endPoints.popular,);
+        endPoint: EndPoints.popular,);
       MoviesModel model = MoviesModel.fromJson(response.data);
       return Right(model);
     }catch (e){
@@ -28,7 +28,7 @@ class HomeRemoteDSImpl implements HomeRemoteDS {
   @override
   Future<Either<Failures, MoviesModel>> getNewReleasesMovies() async{
     try{
-      Response response = await apiManager.getData(endPoint: endPoints.newReleases);
+      Response response = await apiManager.getData(endPoint: EndPoints.newReleases);
       MoviesModel model = MoviesModel.fromJson(response.data);
       return Right(model);
     }catch(e){
@@ -39,7 +39,7 @@ class HomeRemoteDSImpl implements HomeRemoteDS {
   @override
   Future<Either<Failures, MoviesModel>> getRecommendedMovies() async{
     try{
-      Response response = await apiManager.getData(endPoint: endPoints.recommended);
+      Response response = await apiManager.getData(endPoint: EndPoints.recommended);
       MoviesModel model = MoviesModel.fromJson(response.data);
       return Right(model);
     }catch(e){
