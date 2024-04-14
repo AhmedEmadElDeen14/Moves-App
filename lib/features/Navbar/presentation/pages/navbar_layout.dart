@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
-import 'package:movies_app/features/browse_screen/presentatoin/pages/browse_screen.dart';
 import 'package:movies_app/features/home_screen/presentation/pages/home_screen.dart';
 import 'package:movies_app/features/search_screen/presentatoin/pages/search_screen.dart';
 import 'package:movies_app/features/watchlist_screen/presentation/pages/watchlist_screen.dart';
 
+import '../../../browse_screen/presentation/pages/browse_screen.dart';
+
 class NavBarLayout extends StatefulWidget {
-  NavBarLayout({super.key});
+  const NavBarLayout({super.key});
 
   @override
   State<NavBarLayout> createState() => _NavBarLayoutState();
@@ -48,8 +49,8 @@ class _NavBarLayoutState extends State<NavBarLayout> {
 
   List<Widget> tabs =[
     HomeScreen(),
-    SearchScreen(),
-    BrowseScreen(),
-    WatchlistScreen()
+    const SearchScreen(),
+    const BrowseScreen(),
+    const WatchlistScreen()
   ];
 }

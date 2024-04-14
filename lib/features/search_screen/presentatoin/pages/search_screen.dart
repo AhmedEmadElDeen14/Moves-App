@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
-
 import '../widgets/search_film_item.dart';
 
 class SearchScreen extends StatefulWidget {
-  SearchScreen({super.key});
+  const SearchScreen({super.key});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
