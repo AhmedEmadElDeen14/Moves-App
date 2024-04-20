@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
+  String name;
+  String image;
+
+  CategoryItem({super.key, required this.name,required this.image});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Image.asset(
-          "assets/images/film_banner.png",
-          width: 200,
-          height: 110,
-          fit: BoxFit.contain,
+    return ScreenUtilInit(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(18.r),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset(
+              image,
+              width: 200.sw,
+              height: 110.sh,
+              fit: BoxFit.fill,
+            ),
+             Text(
+              name,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w700,
+              ),
+            )
+          ],
         ),
-        const Text(
-          "Action",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-          ),
-        )
-      ],
+      ),
     );
   }
 }

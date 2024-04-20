@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Image(
               image: AssetImage(
-                AppImages.RouteLogo,
+                AppImages.routeLogo,
               ),
             ),
           ),

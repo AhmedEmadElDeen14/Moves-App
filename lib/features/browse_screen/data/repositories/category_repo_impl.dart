@@ -7,7 +7,7 @@ import 'package:movies_app/features/browse_screen/domain/repositories/category_r
 class CategoryRepoImpl implements CategoryRepo{
 
   CategoryDS categoryDS;
-  CategoryRepoImpl(this.categoryDS);
+  CategoryRepoImpl( this.categoryDS);
 
 
   @override
@@ -16,6 +16,7 @@ class CategoryRepoImpl implements CategoryRepo{
       var result = await categoryDS.getCategories();
       return Right(result);
     }catch(error){
+      print(error.toString());
       return Left(RemoteFailure(error.toString()));
     }
   }

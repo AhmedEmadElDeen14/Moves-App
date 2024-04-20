@@ -9,10 +9,10 @@ class ApiManager {
   }
 
   Future<Response> getData(
-      {required String endPoint, Map<String, dynamic>? data}) {
+      {required String endPoint, Map<String, dynamic>? query,}) {
 
     dio.options.headers['Authorization']= Constants.authorization;
 
-    return dio.get(Constants.baseURl + endPoint, queryParameters: data);
+    return dio.get(Constants.baseURl + endPoint, queryParameters:  query,);
   }
 }

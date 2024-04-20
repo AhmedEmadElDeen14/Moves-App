@@ -1,19 +1,19 @@
 part of 'categories_bloc.dart';
 
-@immutable
-class CategoriesState {
+
+class GetCategoriesState {
   ScreenType? status;
   CategoryModel? categoryModel;
   Failures? failures;
 
-  CategoriesState({this.status, this.categoryModel, this.failures});
+  GetCategoriesState({this.status, this.categoryModel, this.failures});
 
-  CategoriesState copyWith({
+  GetCategoriesState copyWith({
     ScreenType? status,
     Failures? failures,
     CategoryModel? categoryModel,
   }) {
-    return CategoriesState(
+    return GetCategoriesState(
       status: status ?? this.status,
       failures: failures ?? this.failures,
       categoryModel: categoryModel ?? this.categoryModel,
@@ -21,6 +21,7 @@ class CategoriesState {
   }
 }
 
-class CategoriesInitState extends CategoriesState{
-  CategoriesInitState() : super(status: ScreenType.init);
+
+class GetCategoriesInitState extends GetCategoriesState {
+  GetCategoriesInitState() : super(status: ScreenType.init);
 }

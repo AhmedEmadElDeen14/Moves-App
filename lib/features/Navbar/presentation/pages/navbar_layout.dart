@@ -50,7 +50,7 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   List<Widget> tabs =[
     HomeScreen(),
     const SearchScreen(),
-    const BrowseScreen(),
+     BrowseScreen(),
     const WatchlistScreen()
   ];
 }

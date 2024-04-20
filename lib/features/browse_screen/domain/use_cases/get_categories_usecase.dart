@@ -6,7 +6,9 @@ import '../../data/models/CategoryModel.dart';
 
 class GetCategoryUseCase {
   CategoryRepo categoryRepo;
-  GetCategoryUseCase(this.categoryRepo);
 
-  Future<Either<Failures, CategoryModel>> call() => categoryRepo.getCategories();
+  GetCategoryUseCase( this.categoryRepo);
+
+  Future<Either<Failures, CategoryModel>> call() =>
+      categoryRepo.getCategories();
 }

@@ -4,6 +4,6 @@ import '../models/MovieSearchModel.dart';
 
 abstract class MovieSearchRemoteDS{
 
-  Future<Either<Failures, MovieSearchModel>> getMovieSearch(String movieName);
+  Future<MovieSearchModel> getMovieSearch(String movieName);
 
 }

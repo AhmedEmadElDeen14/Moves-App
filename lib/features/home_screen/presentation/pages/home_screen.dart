@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/api/api_manager.dart';
 import 'package:movies_app/core/enum/screen_state.dart';
+import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/core/utils/constants.dart';
 import 'package:movies_app/features/home_screen/data/data_sources/home_remote_ds_impl.dart';
 import 'package:movies_app/features/home_screen/data/models/MoviesModel.dart';
@@ -68,13 +69,13 @@ class HomeScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 310.h,
                     child: Stack(
                       children: [
                         state.type == ScreenType.loading
-                            ? const Center(
-                                child: CircularProgressIndicator(),
+                            ? Center(
+                                child: CircularProgressIndicator(color: AppColors.selectedBookmarkColor,),
                               )
                             : Image(
                                 image: NetworkImage(
@@ -88,8 +89,8 @@ class HomeScreen extends StatelessWidget {
                               margin: const EdgeInsets.symmetric(horizontal: 20),
                               alignment: Alignment.bottomLeft,
                               child: state.type == ScreenType.loading
-                                  ? const Center(
-                                      child: CircularProgressIndicator(),
+                                  ? Center(
+                                      child: CircularProgressIndicator(color: AppColors.selectedBookmarkColor,),
                                     )
                                   : MovieImage(
                                       res: movies?[0],
@@ -130,15 +131,18 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   state.type == ScreenType.loading
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
+                      ? SizedBox(
+                    height: 408.h,
+                        child: Center(
+                            child: CircularProgressIndicator(color: AppColors.selectedBookmarkColor,),
+                          ),
+                      )
                       : MoviesList(
                           listTitle: "New Releases",
                         ),
                   state.type == ScreenType.loading
-                      ? const Center(
-                          child: CircularProgressIndicator(),
+                      ? Center(
+                          child: CircularProgressIndicator(color: AppColors.selectedBookmarkColor,),
                         )
                       : MoviesList(
                           listTitle: "Recommended",

@@ -4,6 +4,8 @@ import 'package:movies_app/features/browse_screen/data/data_sources/category_ds.
 import 'package:movies_app/features/browse_screen/data/models/CategoryModel.dart';
 
 class CategoryDSImpl implements CategoryDS {
+  CategoryDSImpl(ApiManager apiManager);
+
   @override
   Future<CategoryModel> getCategories() async {
     ApiManager apiManager = ApiManager();

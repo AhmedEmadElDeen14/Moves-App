@@ -8,8 +8,8 @@ class GetMovieSearchUseCase {
 
   GetMovieSearchUseCase(this.movieSearchRepo);
 
-  Future<Either<Failures, MovieSearchModel>> call(String movieName) =>
-      movieSearchRepo.getMovieSearch(movieName);
+  Future<Either<Failures, MovieSearchModel>> call(String? movieName) =>
+      movieSearchRepo.getMovieSearch(movieName ?? "");
 }
 
 

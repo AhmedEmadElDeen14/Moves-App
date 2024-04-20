@@ -12,14 +12,17 @@ part 'search_state.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   GetMovieSearchUseCase getMovieSearchUseCase;
-  String movieName;
+  //String? movieName;
 
-  SearchBloc(this.getMovieSearchUseCase,this.movieName) : super(const SearchInitState()) {
+  SearchBloc({required this.getMovieSearchUseCase, /*this.movieName*/})
+      : super(
+          const SearchInitState(),
+        ) {
     on<GetSearchEvent>((event, emit) async {
       emit(state.copyWith(
         type: ScreenType.loading,
       ));
-      var result = await getMovieSearchUseCase(movieName);
+      var result = await getMovieSearchUseCase.call(event.movieName);
       result.fold((l) {
         emit(state.copyWith(type: ScreenType.failures, failures: l));
       }, (r) {

@@ -5,8 +5,8 @@ class EndPoints{
   static const String recommended ="/3/movie/top_rated";
   static const String details ="/3/movie/";
 
-  static const String search ="3/search/movie";
-  static const String categories ="3/genre/movie/list";
+  static const String search ="/3/search/movie";
+  static const String categories ="/3/genre/movie/list";
 
 
 
